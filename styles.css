@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Navbar and mobile version*/
+.navbar {
+    background: #096B23;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#navbar__logo {
+    background-size: 100%; 
+    background-clip: text;
+    webkit-background-clip: text;
+    moz-background-clip: text;
+    -webkit-text-fill-color: #fff;
+    -moz-text-fill-color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /*faire que ca montre la petite main*/
+    text-decoration: none; /*enlever les lignes en dessous*/
+    font-size: 2rem;
+
+    /* background-color: #ff8177 ;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-size: 100%; 
+    background-clip: text;
+    webkit-background-clip: text;
+    moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent; */
+}
+
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem ;
+    height: 100%;
+    white-space: nowrap;
+
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #0b882c;
+    color: #fff;
+}
+
+.navbar__links:hover {
+    color: #04a93e;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: #04a93e;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: none;
+        height: 50vh;
+        z-index: -1;
+        background: #131313;
+        transition: opacity 0.5s ease, top 0.5s ease; /* Reintroducing transition */
+    }
+
+    .navbar__menu.active {
+        background: #131313;
+        top: 80px;
+        opacity: 1;
+        transition: none;
+        z-index: 99; 
+        height: 50vh; 
+        font-size: 1.2rem;
+        transition: opacity 0.5s ease, top 0.5s ease; /* Reintroducing transition */
+    }
+
+    #navbar__logo {
+        padding-left: 25px;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+    .navbar__item {
+        width: 100%;
+    }
+    
+    .navbar__links {
+        text-align: center;
+        padding: 2rem; 
+        width: 100%;
+        display: table;
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+/* 2 column display and mobile display*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.column {
+    flex: 1;
+    min-width: 50%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        min-width: 100%;
+    }
+}
+
+/* Plant display */
+.plant-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-flow: row;
+}
+
+.plant-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    display: flex;             /* Use flexbox */
+    align-items: center;       /* Center vertically */
+    justify-content: center;   /* Center horizontally */
+    height: 100px;             /* Ensure a consistent height */
+    text-align: center;
+    height: 60px;
+}
+
+/* Attempts */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;  /* Vertically centers the content */
+    justify-content: flex-start; /* Aligns the content to the left */
+    padding: 20px;
+    background-color: #ebebeb;
+    height: 40px;
+    color: black;
+}
+
+/* Recipes page */
+.recipe__container{
+    width: 100%; 
+    min-height: 100vh; 
+    background: #060423; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    ｝
+}
