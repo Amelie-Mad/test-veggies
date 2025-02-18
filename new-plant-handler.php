@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Validate form data
     if (empty($plant)) {
-        header("Location: index.php");
+        header("Location: index.html");
         exit();
     }
   
@@ -64,13 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = null;
         $pdo = null;
 
-        header("Location: index.php");
+        header("Location: index.html");
         die();
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
 } else {
-    header("Location: index.php");
+    header("Location: index.html");
 }
 
 
